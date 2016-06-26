@@ -2,9 +2,11 @@
   "name": "MacArthur",
   "version": "1.0.0",
   "description": "MacArthur brings GUI to ghq.",
-  "main": "index.js",
+  "main": "app/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "electron-packager . MacArthur --platform=darwin --arch=x64",
+    "start": "electron ."
   },
   "keywords": [],
   "author": "Yasuaki Uechi <uetchy@randompaper.co> (https://randompaper.co/)",
