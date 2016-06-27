@@ -11,8 +11,13 @@ let urlToOpen
 
 function init() {
   app.on('open-url', (event, url) => {
+    console.log("Received", url);
     event.preventDefault()
     urlToOpen = url
+    if (mainWindow) {
+      mainWindow.webContents.send('open-url', urlToOpen)
+      urlToOpen = ''
+    }
   })
 
   // Quit when all windows are closed.
