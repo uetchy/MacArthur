@@ -3,8 +3,10 @@
   <meta charset="utf-8">
 </head>
 <body>
-<script>
-  require('./renderer')
-</script>
+  <div id="root"></div>
+  <script>
+    require('babel-register')()
+    require('./renderer')
+  </script>
 </body>
 </html>
