@@ -1,10 +1,16 @@
 import React, {PropTypes} from 'react'
+import {ghqGet} from '../../ghq'
 
 export default class Download extends React.Component {
   static propTypes = {
     status: PropTypes.string,
     statusText: PropTypes.string,
     gitURL: PropTypes.string
+  }
+
+  componentDidMount() {
+    console.log("Download:", this.props);
+    // fetchRepository(this.props.gitURL);
   }
 
   render() {

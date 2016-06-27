@@ -4,10 +4,12 @@ import DownloadList from './DownloadList'
 
 export default class Root extends React.Component {
   static propTypes = {
-    downloadQueue: PropTypes.array
+    store: PropTypes.object
   }
 
   render() {
-    return (<DownloadList downloadQueue={this.props.downloadQueue}/>)
+    const {store} = this.props
+    console.log(store);
+    return (<DownloadList downloadQueue={store.queue}/>)
   }
 }

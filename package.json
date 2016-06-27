@@ -17,7 +17,9 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
     "electron-packager": "^7.1.0",

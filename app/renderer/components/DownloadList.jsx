@@ -12,6 +12,7 @@ export default class DownloadList extends React.Component {
     const downloadList = downloadQueue.map((queue) => {
       return (<Download {...queue}/>)
     })
+    console.log(downloadList);
     return (
       <div className="download-list">
         {downloadList}
