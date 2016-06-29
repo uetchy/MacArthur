@@ -2,7 +2,7 @@ import {exec} from 'child_process'
 import path from 'path'
 
 function getUserHome() {
-  return process.env["HOME"]
+  return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
 export function ghqGet(query) {

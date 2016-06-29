@@ -1,5 +1,4 @@
 import React, {PropTypes} from 'react'
-import {ghqGet} from '../../ghq'
 
 export default class Download extends React.Component {
   static propTypes = {

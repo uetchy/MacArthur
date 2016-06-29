@@ -1,19 +1,21 @@
-const electron = require('electron')
-const {
-  app,
-  BrowserWindow,
-  dialog,
-  ipcMain
-} = require('electron')
+const { electron, app, BrowserWindow, ipcMain } = require('electron')
+const url = require('url')
 
 let mainWindow
 let urlToOpen
 
 function init() {
-  app.on('open-url', (event, url) => {
-    console.log("Received", url);
+  app.on('open-url', (event, appURL) => {
     event.preventDefault()
-    urlToOpen = url
+    console.log("Received", appURL)
+    let gitURL = ''
+    try {
+      gitURL = url.parse(appURL).path.slice(1)
+    } catch(e) {
+      console.error("Isn't valid URL:", e)
+      return
+    }
+    urlToOpen = gitURL
     if (mainWindow) {
       mainWindow.webContents.send('open-url', urlToOpen)
       urlToOpen = ''
@@ -22,7 +24,7 @@ function init() {
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
-    console.log("window-all-closed");
+    console.log("window-all-closed")
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
@@ -31,7 +33,7 @@ function init() {
   })
 
   app.on('activate', () => {
-    console.log("activate");
+    console.log("activate")
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (mainWindow === null) {
@@ -43,7 +45,7 @@ function init() {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   app.on('ready', () => {
-    console.log("ready");
+    console.log("ready")
     // app.removeListener('open-url', addUrlToOpen)
     createWindow()
 
@@ -64,7 +66,7 @@ function createWindow() {
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.send('open-url', urlToOpen)
     urlToOpen = ''
-  });
+  })
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
@@ -72,7 +74,7 @@ function createWindow() {
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     console.log("closed")
-    mainWindow = null;
+    mainWindow = null
   })
 }
 

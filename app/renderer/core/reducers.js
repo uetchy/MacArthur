@@ -1,9 +1,9 @@
-import {combineReducers} from 'redux';
-// import {routerReducer} from 'react-router-redux';
+import {combineReducers} from 'redux'
+// import {routerReducer} from 'react-router-redux'
 
-import queueReducer from './queue/reducer';
+import repositoryReducer from './repository/reducer'
 
 export default combineReducers({
   // routing: routerReducer,
-  auth: queueReducer
-});
+  repository: repositoryReducer
+})
