@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware} from 'redux'
-// import thunk from 'redux-thunk'
 import repositoryMiddleware from './repository/middleware'
 import reducers from './reducers'
 

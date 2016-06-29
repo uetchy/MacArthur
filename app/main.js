@@ -7,12 +7,12 @@ let urlToOpen
 function init() {
   app.on('open-url', (event, appURL) => {
     event.preventDefault()
-    console.log("Received", appURL)
+    console.log('Received', appURL)
     let gitURL = ''
     try {
       gitURL = url.parse(appURL).path.slice(1)
     } catch(e) {
-      console.error("Isn't valid URL:", e)
+      console.error('Is not valid URL:', e)
       return
     }
     urlToOpen = gitURL
@@ -24,7 +24,7 @@ function init() {
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
-    console.log("window-all-closed")
+    console.log('window-all-closed')
     // On macOS it is common for applications and their menu bar
     // to stay active until the user quits explicitly with Cmd + Q
     if (process.platform !== 'darwin') {
@@ -33,7 +33,7 @@ function init() {
   })
 
   app.on('activate', () => {
-    console.log("activate")
+    console.log('activate')
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
     if (mainWindow === null) {
@@ -45,13 +45,13 @@ function init() {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   app.on('ready', () => {
-    console.log("ready")
+    console.log('ready')
     // app.removeListener('open-url', addUrlToOpen)
     createWindow()
 
     // github-mac://openRepo/https://github.com/electron/electron
     app.setAsDefaultProtocolClient('github-mac')
-    console.log("setAsDefaultProtocolClient")
+    console.log('setAsDefaultProtocolClient')
   })
 }
 
@@ -73,7 +73,7 @@ function createWindow() {
 
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
-    console.log("closed")
+    console.log('closed')
     mainWindow = null
   })
 }

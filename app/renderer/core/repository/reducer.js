@@ -5,13 +5,15 @@ import {
 } from './action-types';
 
 const initialState = {
-  gitURL: null
+  gitURL: null,
+  result: null,
   isFetching: false
 }
 
 export default function repositoryReducer(state = initialState, action) {
   switch(action.type) {
     case REPOSITORY_FETCH_REQUESTED:
+      console.log('REPOSITORY_FETCH_REQUESTED', action)
       return {
         gitURL: action.gitURL,
         isFetching: true
@@ -20,12 +22,14 @@ export default function repositoryReducer(state = initialState, action) {
     case REPOSITORY_FETCH_SUCCEEDED:
       return {
         ...state,
+        result: action.payload,
         isFetching: false
       }
 
     case REPOSITORY_FETCH_FAILED:
       return {
         ...state,
+        result: action.payload,
         isFetching: false
       }
 

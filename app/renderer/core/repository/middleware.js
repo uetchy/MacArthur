@@ -8,13 +8,6 @@ import {
 const fetchRepositoryMiddleware = store => next => action => {
   if (action.type === REPOSITORY_FETCH_REQUESTED) {
     ghqGet(action.gitURL).then((result) => {
-      // if (result.stdout.includes("exists")) {
-      //   store.dispatch({
-      //     type: FETCH_REPOSITORY_ERROR,
-      //     payload: {code: 'EXISTS'}
-      //   })
-      //   return
-      // }
       store.dispatch({
         type: REPOSITORY_FETCH_SUCCEEDED,
         payload: result
@@ -28,3 +21,5 @@ const fetchRepositoryMiddleware = store => next => action => {
   }
   return next(action)
 }
+
+export default fetchRepositoryMiddleware

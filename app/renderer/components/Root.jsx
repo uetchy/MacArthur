@@ -1,20 +1,23 @@
 import React, {PropTypes} from 'react'
-import * as repositoryActions from './core/repository/actions'
+import {connect} from 'react-redux'
 
-import DownloadList from './DownloadList'
+import Download from './Download'
 
-export default class Root extends React.Component {
+class Root extends React.Component {
   static propTypes = {
-    store: PropTypes.object
-  }
-
-  componentDidMount() {
-    repositoryActions.addEventListeners()
+    gitURL: PropTypes.string
   }
 
   render() {
-    const {store} = this.props
-    console.log(store);
-    return (<DownloadList downloadQueue={store.queue}/>)
+    const {gitURL} = this.props
+    return (
+      <div>
+        <h1>{gitURL}</h1>
+      </div>
+    )
   }
 }
+
+export default connect(state => ({
+  gitURL: state.repository.gitURL
+}))(Root)
