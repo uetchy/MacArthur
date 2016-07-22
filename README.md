@@ -1,3 +1,3 @@
 # MacArthur
 
-MacArthur brings GUI to ghq.
+ghq meets graphical interface.
