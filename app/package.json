@@ -1,0 +1,40 @@
+{
+  "name": "MacArthur-web",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-eslint": "6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-preset-react": "6.11.1",
+    "webpack": "^1.13.1",
+    "eslint-config-xo-react": "^0.8.0",
+    "eslint-plugin-react": "^5.2.2",
+    "xo": "^0.16.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ],
+    "extends": "xo-react"
+  }
+}

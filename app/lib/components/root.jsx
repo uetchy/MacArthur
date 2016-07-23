@@ -1,13 +1,8 @@
 import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
 
 // import Download from './download';
 
 class Root extends React.Component {
-	static propTypes = {
-		gitURL: PropTypes.string
-	}
-
 	render() {
 		const {gitURL} = this.props;
 		return (
@@ -18,6 +13,8 @@ class Root extends React.Component {
 	}
 }
 
-export default connect(state => ({
-	gitURL: state.repository.gitURL
-}))(Root);
+Root.propTypes = {
+	gitURL: PropTypes.string
+};
+
+export default Root;

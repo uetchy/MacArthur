@@ -1,12 +1,6 @@
 import React, {PropTypes} from 'react';
 
 export default class Download extends React.Component {
-	static propTypes = {
-		status: PropTypes.string,
-		statusText: PropTypes.string,
-		gitURL: PropTypes.string
-	}
-
 	componentDidMount() {
 		console.log('Download:', this.props);
 		// fetchRepository(this.props.gitURL);
@@ -25,3 +19,9 @@ export default class Download extends React.Component {
 		);
 	}
 }
+
+Download.propTypes = {
+	status: PropTypes.string,
+	statusText: PropTypes.string,
+	gitURL: PropTypes.string
+};
