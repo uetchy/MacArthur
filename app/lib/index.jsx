@@ -1,19 +1,25 @@
-import {ipcRenderer} from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
-import React from 'react';
-import {render} from 'react-dom';
-import configureStore from './core/store';
-import {fetchRepository} from './core/repository/actions';
+import {ipcRenderer} from 'electron' // eslint-disable-line import/no-extraneous-dependencies
+import React from 'react'
+import {render} from 'react-dom'
 
-import Root from './components/root';
+import ghq from './utils/ghq'
+import Root from './components/root'
 
-const store = configureStore();
+let targetURL
+
+function ghqGet(url) {
+	ghq(url).then(result => {
+		console.log(result)
+	})
+}
 
 ipcRenderer.on('open-url', (event, gitURL) => {
-	console.log('open-url', gitURL);
-	store.dispatch(fetchRepository(gitURL));
-});
+	console.log('open-url', gitURL)
+	targetURL = gitURL
+	ghqGet(targetURL)
+})
 
 render(
-	<Root store={store}/>,
+	<Root gitURL={targetURL}/>,
   document.querySelector('#root')
-);
+)
