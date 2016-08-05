@@ -1,5 +1,6 @@
 import React from 'react'
 import {ipcRenderer} from 'electron' // eslint-disable-line import/no-extraneous-dependencies
+import {Card, CardText} from 'material-ui/Card'
 
 import Task from './task'
 
@@ -26,7 +27,9 @@ class Root extends React.Component {
 		console.log(queue)
 		return (
 			<div>
-				{queue}
+				{queue.length > 0 ? queue : <Card>
+					<CardText>No download queue</CardText>
+				</Card>}
 			</div>
 		)
 	}

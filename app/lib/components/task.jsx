@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card'
+import {Card, CardTitle, CardText} from 'material-ui/Card'
 
 import ghq from '../utils/ghq'
 
@@ -44,7 +44,7 @@ export default class Task extends React.Component {
 		const {status, statusText} = this.state
 		return (
 			<Card>
-				<CardTitle title={url} subtitle={status}/>
+				<CardTitle title={status} subtitle={url}/>
 				<CardText>
 					{statusText}
 				</CardText>
