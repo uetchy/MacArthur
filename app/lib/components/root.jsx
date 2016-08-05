@@ -25,11 +25,7 @@ class Root extends React.Component {
 		const {queue} = this.state
 		console.log(queue)
 		return (
-			<div
-				style={{
-					fontFamily: 'sans-serif'
-				}}
-				>
+			<div>
 				{queue}
 			</div>
 		)

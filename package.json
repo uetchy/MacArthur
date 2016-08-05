@@ -17,8 +17,10 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "bluebird": "^3.4.1",
+    "material-ui": "^0.15.3",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^15.3.0",
+    "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
     "electron-packager": "^7.5.0",

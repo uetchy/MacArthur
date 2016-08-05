@@ -2,13 +2,13 @@ const url = require('url')
 const {app, BrowserWindow} = require('electron') // eslint-disable-line import/no-extraneous-dependencies
 
 // Supress multiple instances
-const shouldQuit = app.makeSingleInstance()
+// const shouldQuit = app.makeSingleInstance()
 
 // Quit if the app instance is secondary one
-if (shouldQuit) {
-	app.quit()
-	return
-}
+// if (shouldQuit) {
+// 	app.quit()
+// 	return
+// }
 
 // Globals
 let mainWindow

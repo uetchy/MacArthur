@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import {Card, CardHeader, CardTitle, CardText} from 'material-ui/Card'
 
 import ghq from '../utils/ghq'
 
@@ -42,11 +43,12 @@ export default class Task extends React.Component {
 		const {url} = this.props
 		const {status, statusText} = this.state
 		return (
-			<div className="download">
-				<h2>{url}</h2>
-				<h3>{status}</h3>
-				<p>{statusText}</p>
-			</div>
+			<Card>
+				<CardTitle title={url} subtitle={status}/>
+				<CardText>
+					{statusText}
+				</CardText>
+			</Card>
 		)
 	}
 }
