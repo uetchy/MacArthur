@@ -29,7 +29,7 @@ export default class Task extends React.Component {
 					this.changeStatus('Already exists', err.message[0][1])
 					break
 				default:
-					this.changeStatus('Error')
+					this.changeStatus('Error', err.message)
 			}
 		})
 	}

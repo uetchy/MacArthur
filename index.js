@@ -1,15 +1,6 @@
 const url = require('url')
 const {app, BrowserWindow} = require('electron') // eslint-disable-line import/no-extraneous-dependencies
 
-// Supress multiple instances
-// const shouldQuit = app.makeSingleInstance()
-
-// Quit if the app instance is secondary one
-// if (shouldQuit) {
-// 	app.quit()
-// 	return
-// }
-
 // Globals
 let mainWindow
 let urlToOpen
@@ -76,7 +67,7 @@ function createWindow() {
 	})
 
 	// Open the DevTools.
-	mainWindow.webContents.openDevTools()
+	// mainWindow.webContents.openDevTools()
 
 	// Emitted when the window is closed.
 	mainWindow.on('closed', () => {
