@@ -1,6 +1,16 @@
 const url = require('url')
 const {app, BrowserWindow} = require('electron') // eslint-disable-line import/no-extraneous-dependencies
 
+// Supress multiple instances
+const shouldQuit = app.makeSingleInstance()
+
+// Quit if the app instance is secondary one
+if (shouldQuit) {
+	app.quit()
+	return
+}
+
+// Globals
 let mainWindow
 let urlToOpen
 
@@ -56,11 +66,13 @@ function createWindow() {
 		height: 600
 	})
 
-	mainWindow.loadURL(`file://${__dirname}/index.html`)
+	mainWindow.loadURL(`file://${__dirname}/app/index.html`)
 
 	mainWindow.webContents.on('did-finish-load', () => {
-		mainWindow.webContents.send('open-url', urlToOpen)
-		urlToOpen = ''
+		if (urlToOpen) {
+			mainWindow.webContents.send('open-url', urlToOpen)
+			urlToOpen = ''
+		}
 	})
 
 	// Open the DevTools.

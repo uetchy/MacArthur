@@ -1,8 +1,8 @@
 import path from 'path'
-import {exec} from 'child_process'
+import cp from 'child_process'
 import Promise from 'bluebird'
 
-const execAsync = Promise.promisifyAll(exec)
+const {execAsync} = Promise.promisifyAll(cp)
 
 function getUserHome() {
 	return process.env[(process.platform === 'win32') ? 'USERPROFILE' : 'HOME']
@@ -17,10 +17,17 @@ export default function get(query) {
 			}
 		}).then(stdout => {
 			const cleanedStdout = stdout
-				.replace(/\[03\dm\s+/g, '')
+				.replace(/\[0;\d{2}m\s+/g, '')
 				.replace(/\[0m/g, '')
 				.split('\n')
 				.filter(Boolean)
+				.map(line => line.split(' '))
+			if (stdout.includes('exists')) {
+				return reject({
+					code: 'EXISTS',
+					message: cleanedStdout
+				})
+			}
 			resolve({message: cleanedStdout, stdout})
 		}).catch(err => {
 			let errCode = 'UNKNOWN'
@@ -30,12 +37,10 @@ export default function get(query) {
 				errCode = 'GHQ_NFOUND'
 			} else if (err.includes('"git": executable file not found')) {
 				errCode = 'GIT_NFOUND'
-			} else {
-				errCode = 'UNKNOWN_ERROR'
 			}
 			reject({
 				code: errCode,
-				message: err.message
+				message: [[err.message]]
 			})
 		})
 	})

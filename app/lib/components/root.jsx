@@ -1,20 +1,39 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import {ipcRenderer} from 'electron' // eslint-disable-line import/no-extraneous-dependencies
 
-// import Download from './download'
+import Task from './task'
 
 class Root extends React.Component {
+	constructor(props) {
+		super(props)
+		this.state = {
+			queue: []
+		}
+	}
+
+	componentDidMount() {
+		console.log('start listening')
+		ipcRenderer.on('open-url', (event, gitURL) => {
+			console.log('root open-url:', gitURL)
+			const newQueue = this.state.queue
+			newQueue.push(<Task key={newQueue.length + 1} url={gitURL}/>)
+			this.setState({queue: newQueue})
+		})
+	}
+
 	render() {
-		const {gitURL} = this.props
+		const {queue} = this.state
+		console.log(queue)
 		return (
-			<div>
-				<h1>{gitURL}</h1>
+			<div
+				style={{
+					fontFamily: 'sans-serif'
+				}}
+				>
+				{queue}
 			</div>
 		)
 	}
-}
-
-Root.propTypes = {
-	gitURL: PropTypes.string
 }
 
 export default Root
