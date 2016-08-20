@@ -1,26 +1,22 @@
-const assert = require('assert')
-const Application = require('spectron').Application
+import test from 'ava'
+import {Application} from 'spectron'
 
-describe('application launch', function () {
-	this.timeout(10000)
-
-	beforeEach(function () {
-		this.app = new Application({
-			path: './node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron',
-			args: ['.']
-		})
-		return this.app.start()
+test.beforeEach(t => {
+	t.context.app = new Application({
+		path: '../node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron',
+		args: ['..']
 	})
+	return t.context.app.start()
+})
 
-	afterEach(function () {
-		if (this.app && this.app.isRunning()) {
-			return this.app.stop()
-		}
-	})
+test.afterEach(t => {
+	if (t.context.app && t.context.app.isRunning()) {
+		return t.context.app.stop()
+	}
+})
 
-	it('shows an initial window', function () {
-		return this.app.client.getWindowCount().then(count => {
-			assert.equal(count, 1)
-		})
+test('shows an initial window', t => {
+	t.context.app.client.getWindowCount().then(count => {
+		t.is(count, 1)
 	})
 })
