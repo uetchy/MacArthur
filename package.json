@@ -40,12 +40,9 @@
     ]
   },
   "xo": {
-    "esnext": true,
     "semicolon": false,
     "envs": [
-      "node",
-      "browser",
-      "mocha"
+      "browser"
     ],
     "extends": "xo-react"
   }
