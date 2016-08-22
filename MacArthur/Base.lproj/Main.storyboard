@@ -650,17 +650,16 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="MacArthur" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="2B0905FB-5F3A-470C-A6BF-1ADFC96C2AE6" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="eJJ-8N-Tag">
+                        <toolbar key="toolbar" implicitIdentifier="2B0905FB-5F3A-470C-A6BF-1ADFC96C2AE6" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="small" id="eJJ-8N-Tag">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Nv5-SS-A39"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="C3l-JV-47w"/>
-                                <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="lPf-lp-7Mg"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="Kkr-ml-RZV"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="hGM-Ye-FY5"/>
                             </allowedToolbarItems>
@@ -668,7 +667,6 @@
                                 <toolbarItem reference="Nv5-SS-A39"/>
                                 <toolbarItem reference="C3l-JV-47w"/>
                                 <toolbarItem reference="hGM-Ye-FY5"/>
-                                <toolbarItem reference="lPf-lp-7Mg"/>
                             </defaultToolbarItems>
                         </toolbar>
                     </window>
