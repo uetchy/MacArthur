@@ -1,19 +1,16 @@
-import React from 'react'
-import {render} from 'react-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import React from 'react';
+import { render } from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Root from './components/root'
+import Root from './components/root';
 
-injectTapEventPlugin()
+injectTapEventPlugin();
 
 const App = () => (
-	<MuiThemeProvider>
-		<Root/>
-	</MuiThemeProvider>
-)
+  <MuiThemeProvider>
+    <Root />
+  </MuiThemeProvider>
+);
 
-render(
-	<App/>,
-  document.querySelector('#root')
-)
+render(<App />, document.querySelector('#root'));
