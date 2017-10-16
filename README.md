@@ -5,3 +5,11 @@
 [ghq](https://github.com/motemen/ghq) meets graphical interface.
 
 ![MacArthur](http://randompaper.co.s3.amazonaws.com/MacArthur/screenshot.png)
+
+## Install
+
+```
+npm install
+npm run build
+cp -r dist/MacArthur-darwin-x64/MacArthur.app /Applications
+```
