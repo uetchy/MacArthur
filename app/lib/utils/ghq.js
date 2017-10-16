@@ -17,7 +17,8 @@ export default function get(query) {
       }
     })
       .then(stdout => {
-        const cleanedStdout = stdout
+      	console.log("stdout", stdout);
+        const parsedStdout = stdout
           .replace(/\[0;\d{2}m\s+/g, '')
           .replace(/\[0m/g, '')
           .split('\n')
@@ -26,10 +27,10 @@ export default function get(query) {
         if (stdout.includes('exists')) {
           return reject({
             code: 'EXISTS',
-            message: cleanedStdout
+            message: parsedStdout
           });
         }
-        resolve({ message: cleanedStdout, stdout });
+        resolve({ message: parsedStdout, stdout });
       })
       .catch(err => {
         let errCode = 'UNKNOWN';

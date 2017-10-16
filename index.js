@@ -46,8 +46,8 @@ app.on('ready', () => {
   console.log('ready');
   createWindow();
 
-  // github-mac://openRepo/https://github.com/electron/electron
-  app.setAsDefaultProtocolClient('github-mac');
+  // x-github-client://openRepo/https://github.com/uetchy/MacArthur
+  app.setAsDefaultProtocolClient('x-github-client');
   console.log('setAsDefaultProtocolClient');
 });
 
