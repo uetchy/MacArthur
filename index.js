@@ -54,7 +54,8 @@ app.on('ready', () => {
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 400,
-    height: 600
+    height: 600,
+    titleBarStyle: 'hiddenInset'
   });
 
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);

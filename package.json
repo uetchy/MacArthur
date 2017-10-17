@@ -18,11 +18,9 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "bluebird": "^3.4.1",
-    "material-ui": "^0.19.4",
     "react": "^16.0.0",
     "react-desktop": "^0.3.1",
-    "react-dom": "^16.0.0",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",

@@ -1,16 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { TitleBar, Toolbar, Text } from 'react-desktop/macOs';
 
 import Root from './components/root';
 
-injectTapEventPlugin();
-
 const App = () => (
-  <MuiThemeProvider>
+  <div>
+    <TitleBar inset>
+      <Toolbar height="38" horizontalAlignment="center">
+        <Text>MacArthur</Text>
+      </Toolbar>
+    </TitleBar>
     <Root />
-  </MuiThemeProvider>
+  </div>
 );
 
 render(<App />, document.querySelector('#root'));

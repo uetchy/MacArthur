@@ -17,7 +17,7 @@ export default function get(query) {
       }
     })
       .then(stdout => {
-      	console.log("stdout", stdout);
+        console.log('stdout', stdout);
         const parsedStdout = stdout
           .replace(/\[0;\d{2}m\s+/g, '')
           .replace(/\[0m/g, '')

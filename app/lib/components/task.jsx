@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardTitle, CardText } from 'material-ui/Card';
 import { Box, Text, Button } from 'react-desktop/macOs';
-
-import cp from 'child_process';
-import Promise from 'bluebird';
-const { execAsync } = Promise.promisifyAll(cp);
+import { shell } from 'electron';
 
 import ghq from '../utils/ghq';
 
@@ -20,32 +16,31 @@ export default class Task extends React.Component {
   }
 
   openDirectory(dpath) {
-  	execAsync(`open '${dpath}'`)
+    shell.openItem(dpath);
   }
 
   changeStatus(status, statusText = '') {
     this.setState({ status, statusText });
   }
 
-  fetchRepository(url) {
+  async fetchRepository(url) {
     this.changeStatus('Cloning', url);
-    ghq(url)
-      .then(result => {
-        console.log('ghq result', result);
-        const repoPath = result.message[result.message.length - 1][3];
-        this.changeStatus('Finished', repoPath);
-        this.setState({ finished: true });
-      })
-      .catch(err => {
-        console.log('ERR', err);
-        switch (err.code) {
-          case 'EXISTS':
-            this.changeStatus('Already exists', err.message[0][1]);
-            break;
-          default:
-            this.changeStatus('Error', err.message);
-        }
-      });
+    try {
+      const result = await ghq(url);
+      console.log('ghq result', result);
+      const repoPath = result.message[result.message.length - 1][3];
+      this.changeStatus('Finished', repoPath);
+      this.setState({ finished: true });
+    } catch (err) {
+      console.log('ERR', err);
+      switch (err.code) {
+        case 'EXISTS':
+          this.changeStatus('Already exists', err.message[0][1]);
+          break;
+        default:
+          this.changeStatus('Error', err.message);
+      }
+    }
   }
 
   componentDidMount() {
@@ -61,7 +56,9 @@ export default class Task extends React.Component {
       <Box label={url}>
         <Text size="16">{status}</Text>
         <Text>{statusText}</Text>
-        <Button marginTop="10" onClick={() => this.openDirectory(statusText)}>Open</Button>
+        <Button marginTop="10" onClick={() => this.openDirectory(statusText)}>
+          Open
+        </Button>
       </Box>
     );
   }

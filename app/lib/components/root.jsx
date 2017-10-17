@@ -1,6 +1,6 @@
 import React from 'react';
 import { ipcRenderer } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
-import { Card, CardText } from 'material-ui/Card';
+import { Label, View } from 'react-desktop/macOs';
 
 import Task from './task';
 
@@ -26,15 +26,18 @@ class Root extends React.Component {
     const { queue } = this.state;
     console.log(queue);
     return (
-      <div>
+      <View
+        background="white"
+        height="100%"
+        horizontalAlignment="center"
+        padding="10px"
+      >
         {queue.length > 0 ? (
           queue
         ) : (
-          <Card>
-            <CardText>No download queue</CardText>
-          </Card>
+          <Label textAlign="center">No download queue</Label>
         )}
-      </div>
+      </View>
     );
   }
 }
