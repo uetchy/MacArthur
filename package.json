@@ -18,18 +18,15 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "bluebird": "^3.4.1",
-    "react": "^16.0.0",
-    "react-desktop": "^0.3.1",
-    "react-dom": "^16.0.0"
+    "react": "^16.2.0",
+    "react-desktop": "^0.3.3",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "electron": "^1.7.9",
-    "electron-packager": "^9.1.0",
-    "eslint": "^4.9.0",
-    "eslint-config-xo-react": "^0.13.0",
-    "eslint-plugin-react": "^7.4.0",
-    "npm-run-all": "^4.1.1",
+    "ava": "^0.24.0",
+    "electron": "^1.7.11",
+    "electron-packager": "^10.1.1",
+    "npm-run-all": "^4.1.2",
     "spectron": "^3.3.0"
   },
   "babel": {
