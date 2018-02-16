@@ -30,7 +30,8 @@ class Root extends React.Component {
 				background="white"
 				height="100%"
 				horizontalAlignment="center"
-				padding="10px">
+				padding="10px"
+			>
 				{queue.length > 0 ? (
 					queue
 				) : (
