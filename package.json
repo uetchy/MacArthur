@@ -1,5 +1,5 @@
 {
-  "name": "MacArthur",
+  "name": "macarthur",
   "productName": "MacArthur",
   "version": "1.0.0",
   "description": "MacArthur brings GUI to ghq.",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "main": "main.js",
-  "electronVersion": "1.7.9",
+  "electronVersion": "1.8.4",
   "scripts": {
     "test": "ava",
     "start": "run-p watch:*",
@@ -21,17 +21,17 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.11.6",
     "bluebird": "^3.4.1",
-    "react": "^16.2.0",
-    "react-desktop": "^0.3.3",
-    "react-dom": "^16.2.0"
+    "react": "^16.3.0",
+    "react-desktop": "^0.3.4",
+    "react-dom": "^16.3.0"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
-    "electron": "^1.7.11",
-    "electron-packager": "^10.1.1",
+    "ava": "^0.25.0",
+    "electron": "^1.8.4",
+    "electron-packager": "^11.2.0",
     "npm-run-all": "^4.1.2",
-    "parcel-bundler": "^1.6.1",
-    "spectron": "^3.3.0"
+    "parcel-bundler": "^1.7.0",
+    "spectron": "^3.8.0"
   },
   "babel": {
     "presets": ["es2015", "react"]
