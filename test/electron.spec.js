@@ -1,10 +1,12 @@
 import test from 'ava'
 import { Application } from 'spectron'
+import electronPath from 'electron'
+import path from 'path'
 
 test.beforeEach(t => {
   t.context.app = new Application({
-    path: '../node_modules/electron/dist/Electron.app/Contents/MacOS/Electron',
-    args: ['..'],
+    path: electronPath,
+    args: [path.join(__dirname, '..')],
   })
   return t.context.app.start()
 })
@@ -15,8 +17,8 @@ test.afterEach(t => {
   }
 })
 
-test('shows an initial window', t => {
-  t.context.app.client.getWindowCount().then(count => {
-    t.is(count, 1)
-  })
+test('shows an initial window', async t => {
+  const app = t.context.app
+  const count = await app.client.waitUntilWindowLoaded().getWindowCount()
+  t.is(count, 1)
 })
