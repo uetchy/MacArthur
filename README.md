@@ -4,7 +4,7 @@
 
 [ghq](https://github.com/motemen/ghq) meets graphical interface.
 
-![MacArthur](http://uechi.s3.amazonaws.com/github/MacArthur.png)
+![MacArthur](http://uechi-public.s3.amazonaws.com/github/MacArthur.png)
 
 ## Install
 
