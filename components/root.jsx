@@ -26,8 +26,16 @@ class Root extends React.Component {
     const { queue } = this.state
     console.log(queue)
     return (
-      <View background="white" height="100%" horizontalAlignment="center" padding="10px">
-        {queue.length > 0 ? queue : <Label textAlign="center">No download queue</Label>}
+      <View
+        background="white"
+        height="100%"
+        horizontalAlignment="center"
+        padding="10px">
+        {queue.length > 0 ? (
+          queue
+        ) : (
+          <Label textAlign="center">No download queue</Label>
+        )}
       </View>
     )
   }
