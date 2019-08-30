@@ -56,6 +56,9 @@ function createWindow() {
     width: 400,
     height: 600,
     titleBarStyle: 'hiddenInset',
+    webPreferences: {
+      nodeIntegration: true,
+    },
   })
 
   mainWindow.loadURL(`file://${__dirname}/index.html`)

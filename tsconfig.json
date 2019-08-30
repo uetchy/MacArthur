@@ -1,0 +1,7 @@
+{
+  "extends": "shared/tsconfig",
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true
+  }
+}
