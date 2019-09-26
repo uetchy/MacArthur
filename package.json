@@ -1,7 +1,7 @@
 {
   "name": "macarthur",
   "description": "MacArthur brings GUI to ghq.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "parcel build --target=electron src/index.tsx",
     "package": "yarn build && electron-packager . $npm_package_productName --out=release --asar --platform=darwin --arch=x64 --version=$npm_package_electronVersion --icon=./icon.icns --overwrite && create-dmg ./release/MacArthur-darwin-x64/MacArthur.app ./release",
