@@ -2,13 +2,11 @@
   "name": "macarthur",
   "description": "MacArthur brings GUI to ghq.",
   "version": "1.0.0",
-  "author": "Yasuaki Uechi <y@uechi.io>",
-  "main": "main.js",
   "scripts": {
     "build": "parcel build --target=electron src/index.tsx",
-    "package": "npm run build && electron-packager . $npm_package_productName --out=release --asar --platform=darwin --arch=x64 --version=$npm_package_electronVersion --icon=./icon.icns --overwrite",
+    "package": "yarn build && electron-packager . $npm_package_productName --out=release --asar --platform=darwin --arch=x64 --version=$npm_package_electronVersion --icon=./icon.icns --overwrite && create-dmg ./release/MacArthur-darwin-x64/MacArthur.app ./release",
     "start": "run-p watch:*",
-    "test": "npm run build && ava",
+    "test": "yarn build && ava",
     "watch:electron": "electron .",
     "watch:js": "parcel --target=electron src/index.tsx"
   },
@@ -17,29 +15,32 @@
     "react": "^16.9.0",
     "react-desktop": "^0.3.5",
     "react-dom": "^16.4.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.4.4",
-    "@types/react": "^16.9.2",
-    "@types/react-dom": "^16.9.0",
-    "ava": "^2.1.0",
+    "@babel/register": "^7.6.2",
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
+    "ava": "^2.4.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "electron": "^6.0.5",
-    "electron-packager": "^14.0.5",
+    "create-dmg": "^4.1.0",
+    "electron": "^6.0.10",
+    "electron-packager": "^14.0.6",
     "npm-run-all": "^4.1.3",
     "parcel-bundler": "^1.12.3",
     "spectron": "^8.0.0",
-    "typescript": "^3.6.2"
+    "typescript": "^3.6.3"
   },
+  "author": "Yasuaki Uechi <y@uechi.io>",
+  "license": "MIT",
+  "main": "main.js",
   "browserslist": [
     "last 1 Chrome version"
   ],
-  "license": "MIT",
   "private": true,
   "productName": "MacArthur"
 }
